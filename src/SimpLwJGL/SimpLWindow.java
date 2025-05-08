@@ -29,6 +29,7 @@ public class SimpLWindow {
         GL.createCapabilities();
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        start.run();
 
         while (!GLFW.glfwWindowShouldClose(window)) {
             updateWindowSize();
