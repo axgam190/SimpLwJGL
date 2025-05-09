@@ -5,6 +5,7 @@ import static org.lwjgl.glfw.GLFW.*;
 public class SimpLEvents {
     static long window = SimpLWindow.window;
 
+    // Important events (delays; keyboard events)
     public static class KeyboardEvents {
 
         static final int MAX_KEYS = 350;
