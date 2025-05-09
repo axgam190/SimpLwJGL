@@ -6,14 +6,14 @@ import static org.lwjgl.opengl.GL11.*;
 public class SimpLWindow {
     static private Runnable loop;
     public static long window;
-    static public int screenWidth;
-    static public int screenHeight;
+    static public int windowWidth;
+    static public int windowHeight;
     static public double deltaTime;
     static private double lastTime = GLFW.glfwGetTime();
     // Window creation
     public static void createWindow(int width, int height, String name, Runnable windowLoop, Runnable start) {
-        screenWidth = width;
-        screenHeight = height;
+        windowWidth = width;
+        windowHeight = height;
         loop = windowLoop;
 
         if (!GLFW.glfwInit()) {
@@ -68,8 +68,8 @@ public class SimpLWindow {
             java.nio.IntBuffer height = stack.mallocInt(1);
 
             GLFW.glfwGetWindowSize(window, width, height);
-            screenWidth = width.get(0);
-            screenHeight = height.get(0);
+            windowWidth = width.get(0);
+            windowHeight = height.get(0);
         }
     }
 }

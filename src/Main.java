@@ -1,22 +1,30 @@
+import SimpLwJGL.SimpLRendering;
 import SimpLwJGL.SimpLWindow;
-import SimpLwJGL.SimpLEntities.Square;
+import SimpLwJGL.SimpLInstances.Square;
+import SimpLwJGL.SimpLInstances.Outlines.QuadOutline;
 
 public class Main {
 
     private static Square square;
+    private static QuadOutline outline;
 
     static public Runnable start = () -> {
-        SimpLWindow.setBackgroundRGB(170, 155, 130);
+        SimpLWindow.setBackgroundRGB(105, 105, 97);
         square = new Square(0, 0, 100, 100);
+        outline = new QuadOutline(square);
     };
 
     static public Runnable update = () -> {
         SimpLWindow.clearContent();
-        square.render();
 
+        SimpLRendering.setRGBA(156, 185, 215, 1f);
+        square.render();
+        SimpLRendering.setLineThickness(3f);
+        SimpLRendering.setRGBA(0, 0, 0, 1f);
+        outline.render();
     };
 
     public static void main(String[] args) {
-        SimpLWindow.createWindow(600, 600, "Game", update, start);
+        SimpLWindow.createWindow(800, 800, "Game", update, start);
     }
 }
