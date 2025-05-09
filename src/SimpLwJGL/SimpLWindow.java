@@ -8,13 +8,13 @@ public class SimpLWindow {
     public static long window;
     static public int screenWidth;
     static public int screenHeight;
-
+    static public double deltaTime;
+    static private double lastTime = GLFW.glfwGetTime();
     // Window creation
     public static void createWindow(int width, int height, String name, Runnable windowLoop, Runnable start) {
         screenWidth = width;
         screenHeight = height;
         loop = windowLoop;
-        start.run();
 
         if (!GLFW.glfwInit()) {
             throw new IllegalStateException("Failed to initialize GLFW");
@@ -33,6 +33,10 @@ public class SimpLWindow {
 
         while (!GLFW.glfwWindowShouldClose(window)) {
             updateWindowSize();
+            SimpLEvents.KeyboardEvents.updateInput();
+
+            deltaTime = GLFW.glfwGetTime() - lastTime;
+            lastTime = GLFW.glfwGetTime();
 
             loop.run();
 

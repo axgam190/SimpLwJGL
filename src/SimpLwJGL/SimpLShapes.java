@@ -25,12 +25,12 @@ public class SimpLShapes {
         glVertex2f(point4X, point4Y);
         glEnd();
     }
-    public static void drawFixedQuad(int posX, int posY, int sizeX, int sizeY) {
-        float calcPosX = (float) posX / SimpLWindow.screenWidth;
-        float calcPosY = (float) posY / SimpLWindow.screenHeight;
+    public static void drawFixedQuad(float posX, float posY, float sizeX, float sizeY) {
+        float calcPosX = posX / SimpLWindow.screenWidth;
+        float calcPosY = posY / SimpLWindow.screenHeight;
 
-        float calcSizeX = (float) Math.abs(sizeX) / SimpLWindow.screenWidth;
-        float calcSizeY = (float) Math.abs(sizeY) / SimpLWindow.screenHeight;
+        float calcSizeX = Math.abs(sizeX) / SimpLWindow.screenWidth;
+        float calcSizeY = Math.abs(sizeY) / SimpLWindow.screenHeight;
 
         float calcPtX1 = calcPosX - calcSizeX;
         float calcPtY1 = calcPosY - calcSizeY;

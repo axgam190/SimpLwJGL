@@ -1,41 +1,22 @@
 import SimpLwJGL.SimpLWindow;
-import SimpLwJGL.SimpLShapes;
-import SimpLwJGL.SimpLEvents;
-import SimpLwJGL.SimpLEntities;
-import static org.lwjgl.glfw.GLFW.*;
+import SimpLwJGL.SimpLEntities.Square;
 
 public class Main {
 
-    static SimpLEntities entity;
+    private static Square square;
 
-    static Runnable start = () -> {
-        System.out.println("Successfully started!");
-
-        entity = new SimpLEntities(0, 0, 100, 100);
+    static public Runnable start = () -> {
+        SimpLWindow.setBackgroundRGB(170, 155, 130);
+        square = new Square(0, 0, 100, 100);
     };
 
-    static Runnable frameLoop = () -> {
-        SimpLWindow.setBackgroundRGB(178, 217, 255);
+    static public Runnable update = () -> {
         SimpLWindow.clearContent();
+        square.render();
 
-        if (SimpLEvents.KeyboardEvents.isKeyDown(GLFW_KEY_W)) {
-            entity.y += 6;
-        }
-        if (SimpLEvents.KeyboardEvents.isKeyDown(GLFW_KEY_S)) {
-            entity.y -= 6;
-        }
-        if (SimpLEvents.KeyboardEvents.isKeyDown(GLFW_KEY_A)) {
-            entity.x -= 8;
-        }
-        if (SimpLEvents.KeyboardEvents.isKeyDown(GLFW_KEY_D)) {
-            entity.x += 8;
-        }
-
-        SimpLShapes.setRGBA(100, 100, 100, 1);
-        entity.quadRender();
     };
 
     public static void main(String[] args) {
-        SimpLWindow.createWindow(800, 600, "Game", frameLoop, start);
+        SimpLWindow.createWindow(600, 600, "Game", update, start);
     }
 }
