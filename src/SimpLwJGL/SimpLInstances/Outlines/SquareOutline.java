@@ -4,13 +4,13 @@ import SimpLwJGL.SimpLInstances.Square;
 import SimpLwJGL.SimpLRendering;
 import SimpLwJGL.SimpLWindow;
 
-public class QuadOutline {
+public class SquareOutline {
     public float x1, y1,
                  x2, y2,
                  x3, y3,
                  x4, y4;
 
-    public QuadOutline(Square square) {
+    public SquareOutline(Square square) {
         float tempPosX = square.x;
         float tempPosY = square.y;
         float tempSizeX = square.width;

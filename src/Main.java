@@ -1,17 +1,17 @@
 import SimpLwJGL.SimpLRendering;
 import SimpLwJGL.SimpLWindow;
 import SimpLwJGL.SimpLInstances.Square;
-import SimpLwJGL.SimpLInstances.Outlines.QuadOutline;
+import SimpLwJGL.SimpLInstances.Outlines.SquareOutline;
 
 public class Main {
 
     private static Square square;
-    private static QuadOutline outline;
+    private static SquareOutline outline;
 
     static public Runnable start = () -> {
         SimpLWindow.setBackgroundRGB(105, 105, 97);
         square = new Square(0, 0, 100, 100);
-        outline = new QuadOutline(square);
+        outline = new SquareOutline(square);
     };
 
     static public Runnable update = () -> {
